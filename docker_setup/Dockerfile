@@ -37,21 +37,6 @@ RUN pip install --upgrade pip && \
     pip install Babel
 
 
-# Install static wkhtmltopdf binaries (no system dependencies)
-RUN apt-get update && apt-get install -y \
-    xz-utils \
-    fontconfig \
-    libxrender1 \
-    libxext6 \
-    libx11-6 \
-    && tar -xf wkhtmltox.tar.xz \
-    && cp wkhtmltox/bin/wkhtmltopdf /usr/local/bin/ \
-    && cp wkhtmltox/bin/wkhtmltoimage /usr/local/bin/ \
-    && chmod +x /usr/local/bin/wkhtmltopdf /usr/local/bin/wkhtmltoimage \
-    && rm -rf wkhtmltox* /var/lib/apt/lists/*
-
-
-
 
 
 # Set working directory to official Odoo source (which is in root already)
