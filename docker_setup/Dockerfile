@@ -44,8 +44,6 @@ RUN apt-get update && apt-get install -y \
     libxrender1 \
     libxext6 \
     libx11-6 \
-    && curl -L https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.6/wkhtmltox-0.12.6-1-linux-generic-amd64.tar.xz \
-    -o wkhtmltox.tar.xz \
     && tar -xf wkhtmltox.tar.xz \
     && cp wkhtmltox/bin/wkhtmltopdf /usr/local/bin/ \
     && cp wkhtmltox/bin/wkhtmltoimage /usr/local/bin/ \
