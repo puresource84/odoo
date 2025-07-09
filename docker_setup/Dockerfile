@@ -37,18 +37,21 @@ RUN pip install --upgrade pip && \
     pip install Babel
 
 
-# Install wkhtmltopdf using Debian Bullseye package (static dependencies)
+# Install static wkhtmltopdf binaries (no system dependencies)
 RUN apt-get update && apt-get install -y \
-    xfonts-75dpi \
-    xfonts-base \
+    xz-utils \
+    fontconfig \
     libxrender1 \
     libxext6 \
-    libfontconfig1 \
-    libfreetype6 \
-    && curl -LO https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.bullseye_amd64.deb \
-    && apt-get install -y ./wkhtmltox_0.12.6.1-2.bullseye_amd64.deb \
-    && rm -f wkhtmltox_0.12.6.1-2.bullseye_amd64.deb \
-    && rm -rf /var/lib/apt/lists/*
+    libx11-6 \
+    && curl -L https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.6/wkhtmltox-0.12.6-1-linux-generic-amd64.tar.xz \
+    -o wkhtmltox.tar.xz \
+    && tar -xf wkhtmltox.tar.xz \
+    && cp wkhtmltox/bin/wkhtmltopdf /usr/local/bin/ \
+    && cp wkhtmltox/bin/wkhtmltoimage /usr/local/bin/ \
+    && chmod +x /usr/local/bin/wkhtmltopdf /usr/local/bin/wkhtmltoimage \
+    && rm -rf wkhtmltox* /var/lib/apt/lists/*
+
 
 
 
