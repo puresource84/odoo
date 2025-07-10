@@ -33,7 +33,6 @@ RUN apt-get update && apt-get install -y \
 # Install pip requirements for Odoo + Babel manually
 COPY ../requirements.txt /tmp/requirements.txt
 RUN pip install --upgrade pip && \
-    pip install -r /tmp/requirements.txt && \
     pip install Babel
 
 
