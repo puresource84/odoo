@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -y \
 # Install pip requirements for Odoo + Babel manually
 # COPY ../requirements.txt /tmp/requirements.txt
 RUN pip install --upgrade pip && \
-    pip install Babel pytz lxml_html_clean passlib
+    pip install Babel pytz lxml_html_clean passlib PIL
 
 
 
