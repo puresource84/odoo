@@ -42,7 +42,10 @@ RUN pip install --upgrade pip && \
 WORKDIR /opt/odoo
 
 # Copy all Odoo source files from the repo root
-COPY .. .
+# COPY .. .
+COPY odoo /opt/odoo/odoo
+COPY odoo-bin /opt/odoo/odoo-bin
+COPY docker_setup/odoo.conf /etc/odoo/odoo.conf
 
 # Default command
 CMD ["python3", "odoo-bin", "--config", "/etc/odoo/odoo.conf"]
