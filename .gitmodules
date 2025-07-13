@@ -1,0 +1,3 @@
+[submodule "custom_addons/dental_clinic"]
+	path = custom_addons/dental_clinic
+	url = https://github.com/ambientWave/Odoo-Dental-Clinic-Managment-System-With-REST-API.git
